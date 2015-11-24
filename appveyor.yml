@@ -6,8 +6,11 @@ branches:
 
 # Test against this version of Node.js
 environment:
-  nodejs_version: "5"
-  # nodejs_version: "0.10.30"
+  matrix:
+  # node.js latest stable build
+  - nodejs_version: "0"
+  # nodejs_version: "0.12"
+  - nodejs_version: "0.12"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -18,13 +21,13 @@ install:
   - cmd: npm --version
   # install modules
   - cmd: npm install
-  - ps: cd generatorTests
+  - cmd: cd generatorTests
   - cmd: npm install -g mocha
   - cmd: npm install -g gulp
 
 # Post-install test scripts.
 test_script:
-  - ps: mocha
+  - cmd: mocha
 
 # Don't actually build.
 build: off
