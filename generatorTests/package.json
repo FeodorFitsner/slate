@@ -15,10 +15,6 @@
     "chai-fs": "^0.1.0",
     "fs-extra": "^0.24.0",
     "fs-plus": "^2.8.1",
-    "imagemin-pngquant": "^4.1.0",
-    "mocha": "^2.3.3",
-    "run-sequence": "^1.1.0",
-    "url": "^0.10.3",
-    "yargs": "^3.18.0"
+    "mocha": "^2.3.3"
   }
 }

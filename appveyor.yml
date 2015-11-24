@@ -24,6 +24,7 @@ install:
   - cmd: cd generatorTests
   - cmd: npm install -g mocha
   - cmd: npm install -g gulp
+  - cmd: npm install chai-fs
 
 # Post-install test scripts.
 test_script:
