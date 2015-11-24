@@ -1,21 +1,24 @@
 # Test against this version of Node.js
 environment:
-  nodejs_version: "0.10"
+  nodejs_version: "stable"
+  # nodejs_version: "0.10.30"
 
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  # install modules
-  - cmd: npm install
-
-# Post-install test scripts.
-test_script:
   # Output useful info for debugging.
   - cmd: node --version
   - cmd: npm --version
-  # run tests
-  # - npm test
+  # install modules
+  - cmd: npm install
+  - ps: cd generatorTests
+
+# Post-install test scripts.
+test_script:
+  - cmd: npm install -g mocha
+  - cmd: npm install -g gulp
+  - ps: mocha
 
 # Don't actually build.
 build: off
