@@ -23,6 +23,7 @@ install:
   - cmd: npm --version
   # install modules
   - cmd: npm -g install gulp-sass@1.3.3
+  - cmd: npm -g install node-sass@2.0.1
   - cmd: npm install
   - cmd: cd generatorTests
   - cmd: npm install -g mocha
