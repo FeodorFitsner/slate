@@ -24,6 +24,8 @@ install:
   - cmd: npm cache clear
   # install modules
   - cmd: npm install
+  - cmd: npm uninstall node-sass
+  - cmd: npm uninstall gulp-sass
   - cmd: npm -g install gulp-sass@1.3.3
   - cmd: npm -g install node-sass@2.0.1
   - cmd: cd generatorTests
