@@ -7,9 +7,9 @@ branches:
 # Test against this version of Node.js
 environment:
   matrix:
-  # node.js latest stable build
-  - nodejs_version: "0"
-  # nodejs_version: "0.12"
+  # nodejs version: "5"
+  - nodejs_version: "5"
+  # nodejs version: "0.12"
   - nodejs_version: "0.12"
 
 # Install scripts. (runs after repo cloning)
