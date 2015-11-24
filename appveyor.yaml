@@ -1,0 +1,27 @@
+environment:
+  matrix:
+  # node.js
+  - nodejs_version: "0.10"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # ensure root npm install works
+  - npm install
+  - cd generatorTests
+  # generatorTests modules install
+  - npm install
+  - npm install -g mocha
+  - npm install -g gulp
+
+# Post-install test scripts.
+test_script:
+  # run tests
+  - mocha
+
+# Don't actually build.
+build: off
