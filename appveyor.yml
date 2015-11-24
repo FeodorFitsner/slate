@@ -16,13 +16,13 @@ environment:
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  - cmd: npm -g install npm@2
+  - cmd: npm -g install npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
-  - cmd: npm -g install gulp-sass@1.3.3
   # Output useful info for debugging.
   - cmd: node --version
   - cmd: npm --version
   # install modules
+  - cmd: npm -g install gulp-sass@1.3.3
   - cmd: npm install
   - cmd: cd generatorTests
   - cmd: npm install -g mocha
