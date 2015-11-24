@@ -10,6 +10,8 @@ const ROOT_DIR = path.join(process.cwd(), '..');
 
 function runGulpTask(options, callback) {
 
+    options.stdio = 'inherit';
+
     process.chdir(ROOT_DIR);
 
     var gulp = spawn('gulp', options)
