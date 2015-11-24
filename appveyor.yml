@@ -21,6 +21,7 @@ install:
   # Output useful info for debugging.
   - cmd: node --version
   - cmd: npm --version
+  - cmd: npm cache clear
   # install modules
   - cmd: npm -g install gulp-sass@1.3.3
   - cmd: npm -g install node-sass@2.0.1
