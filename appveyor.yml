@@ -25,6 +25,7 @@ install:
   - cmd: npm install -g mocha
   - cmd: npm install -g gulp
   - cmd: npm install chai-fs
+  - cmd: npm install fs-plus
 
 # Post-install test scripts.
 test_script:
