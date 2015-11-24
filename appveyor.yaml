@@ -7,13 +7,13 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - npm install
+  - cmd: npm install
 
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
-  - node --version
-  - npm --version
+  - cmd: node --version
+  - cmd: npm --version
   # run tests
   # - npm test
 
