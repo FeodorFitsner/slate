@@ -3,7 +3,6 @@ module.exports = function() {
 	/**
 	 * Set of handlebar helpers that can be used in templates
 	 */
-
 	return {
 		/**
 		 * Get the string value of a JSON object, useful for debugging template data
@@ -50,6 +49,29 @@ module.exports = function() {
 				default:
 					return options.inverse(this);
 			}
-		}
+		},
+		/**
+		 * Helper that repeats blocks of code, providing an index to be utilised
+		 *
+		 * @param  {Bool} 	n           Number of times to repeat a code block
+		 * @param  {Obj} 	options
+		 * @return {String}             HTML string of content to be put into template
+		 *
+		 * @example
+		 * {{#repeat 4}} <h{{@index}}>Hello, World!</h{{@index}}> {{/repeat}}
+		 */
+		repeat: function (n, options) {
+			var content = '',
+			count = n - 1;
+
+			for (var i = 0; i <= count; i++) {
+				var data = {
+					index: i + 1
+				};
+				content += options.fn(this, {data: data});
+			}
+
+			return content;
+		 }
 	}
 }
