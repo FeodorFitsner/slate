@@ -30,10 +30,40 @@
 					<li>Ordered list item 6</li>
 				</ol>
 			</section>
+			<section class="styleguide__section">
+				<h1>Form styles</h1>
+				<h2>Fieldset</h2>
+				<form>
+					<fieldset class="fgroup">
+						<legend>Fieldset label</legend>
+					</fieldset>
+				</form>
+				<h2>Input styles</h2>
+				<form>
+					<fieldset class="fgroup">
+						<legend>Text input types</legend>
+						<section class="input-group">
+							<h2>Text field</h2>
+							<div class="frow">
+								<label for="text">Text</label>
+								<input type="text" name="text" id="text" placeholder="text" />
+							</div>
+							<div class="frow">
+								<label for="text-prefilled">Text (prefilled)</label>
+								<input type="text" name="text" id="text-prefilled" value="Lorem ipsum" placeholder="text" />
+							</div>
+							<div class="frow">
+								<label for="text-disabled">Text (disabled)</label>
+								<input type="text" name="text" id="text-disabled" disabled placeholder="text" />
+							</div>
+						</section>
+					</fieldset>
+				</form>
+			</section>
 		</div>
 
 		<div class="wrapper">
-			<div class="styleguide__section">
+			<section class="styleguide__section">
 				<h2 class="styleguide__section-title">12 column grid all widths</h2>
 				<section class="section grid styleguide__grid">
 					<div class="grid__row">
@@ -83,7 +113,7 @@
 					</div>
 				</section>
 			</div>
-		</div>
+		</section>
 	</div>
 
 	<!-- / end site markup -->
