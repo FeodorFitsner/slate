@@ -2,7 +2,7 @@
 	<!-- start site markup -->
 	<div class="styleguide">
 		<div class="wrapper">
-			<div class="styleguide__section">
+			<section class="styleguide__section">
 				<h1>{{ data.styleguideHeading }}</h1>
 				<h2 class="styleguide__section-title">Body copy and heirachy</h2>
 				<h1>This is the styleguide</h1>
@@ -13,7 +13,23 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum in risus non rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae nulla pharetra, ultricies quam nec, consectetur urna. Vivamus in mauris convallis, fermentum sem quis, sagittis nisl.</p>
 				<h3>Text links</h3>
 				<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a> elit. Praesent dictum in risus non rhoncus. Lorem ipsum dolor sit amet</p>
-			</div>
+				<ul>
+					<li>Unordered list item 1</li>
+					<li>Unordered list item 2</li>
+					<li>Unordered list item 3</li>
+					<li>Unordered list item 4</li>
+					<li>Unordered list item 5</li>
+					<li>Unordered list item 6</li>
+				</ul>
+				<ol>
+					<li>Ordered list item 1</li>
+					<li>Ordered list item 2</li>
+					<li>Ordered list item 3</li>
+					<li>Ordered list item 4</li>
+					<li>Ordered list item 5</li>
+					<li>Ordered list item 6</li>
+				</ol>
+			</section>
 		</div>
 
 		<div class="wrapper">
@@ -77,12 +93,12 @@
 						{{>grid/grid gridRef='col--11/12' gridItemClass='styleguide__grid-item' content='col--11/12'}}
 						{{>grid/grid gridRef='col--1/12' gridItemClass='styleguide__grid-item' content='col--1/12'}}
 					</div>
-					
+
 				</section>
 			</div>
 		</div>
 
 	</div>
-	
+
 	<!-- / end site markup -->
 {{> footer JS=true}}
