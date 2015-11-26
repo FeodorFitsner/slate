@@ -1,15 +1,15 @@
 {
-	"dest": "public/_client",
-	"src": "_source",
-    "build": "build/_client",
+	"dest":  "public/_client",
+	"src":   "_source",
+	"build": "build/_client",
 	"dirs": {
-        "styles":     	"styles",
-        "scripts":    	"scripts",
-        "images":     	"images",
-        "components": 	"views",
-        "fonts": 	"fonts",
-        "reports": 		"reports"
-    },
-    "pixelBase": "16px",
-    "pixelBaseNoUnit": 16
+		"styles":     "styles",
+		"scripts":    "scripts",
+		"images":     "images",
+		"components": "views",
+		"fonts":      "fonts",
+		"reports":    "reports"
+	},
+	"pixelBase": "16px",
+	"pixelBaseNoUnit": 16
 }

@@ -1,34 +1,36 @@
-var express = require('express'),
-	website = express(),
-	http = require('http').Server(website),
-	path = require('path'),
-	logger = require('express-logger'),
-	json = require('express-json'),
-	bodyParser = require('body-parser'),
-	expressSession = require('express-session'),
-	methodOverride = require('express-method-override'),
-	exphbs = require('express-handlebars'),
-	chalk = require('chalk');
+var express        = require('express');
+var website        = express();
+var http           = require('http').Server(website);
+var path           = require('path');
+var logger         = require('express-logger');
+var json           = require('express-json');
+var bodyParser     = require('body-parser');
+var expressSession = require('express-session');
+var methodOverride = require('express-method-override');
+var exphbs         = require('express-handlebars');
+var chalk          = require('chalk');
 
 website.engine('hbs', exphbs({
-	extname:'hbs',
-	defaultLayout:'index.hbs',
-	partialsDir: ['views/_partials']
+	extname:       'hbs',
+	defaultLayout: 'index.hbs',
+	layoutsDir:    'views/_layouts',
+	defaultLayout: 'main',
+	partialsDir:   ['views/_partials']
 }));
 
 website.set('port', process.env.PORT || 3001);
 website.set('views', path.join(__dirname, 'views'));
 website.set('view engine', 'hbs');
 website.use(logger({path: './logs/logfile.txt'}));
-website.use(expressSession({secret: '18dhN7skw9AY82jb',
-                 saveUninitialized: true,
-                 resave: true}));
+website.use(expressSession({
+	secret:            '18dhN7skw9AY82jb',
+	saveUninitialized: true,
+	resave:            true
+}));
 website.use(json());
 website.use(bodyParser.urlencoded({ extended: false }));
 website.use(methodOverride());
 website.use(express.static(path.join(__dirname, 'public')));
-
-
 
 // Setup routing
 require('./routing')(website);
