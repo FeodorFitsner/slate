@@ -1,5 +1,6 @@
-var path = require('path');
-var templateData = require(path.resolve(__dirname, '..', '_config', 'templateData.json'));
+var path            = require('path');
+var merge           = require('merge');
+var defaultData     = require(path.resolve(__dirname, '..', '_config', 'templateData.json'));
 var templateHelpers = require(path.resolve(__dirname, '..', '_config', 'templateHelpers.js'))();
 
 var WebsiteController = function (website) {
@@ -8,14 +9,27 @@ var WebsiteController = function (website) {
 	this.get = function(request, response) {
 		if (!request.body) return response.sendStatus(400);
 		var url = parseUrl(request.params[0]);
-		
-		response.render(url, createModel());
+
+		response.render(url, createModel(url));
 	};
 
-	function createModel(params){
+	function getData(file) {
+		var templateData;
+
+		try{
+			templateData = require(path.resolve(__dirname, '..', 'views/_data', file + '.json'));
+		} catch(err){
+			templateData = {};
+		}
+
+		templateData = merge(defaultData, templateData);
+
+		return templateData;
+	}
+
+	function createModel(partialName){
 		var model = {
-			layout: false,
-			data: templateData,
+			data:    getData(partialName),
 			helpers: templateHelpers
 		}
 

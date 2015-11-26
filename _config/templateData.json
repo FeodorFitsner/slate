@@ -1,3 +1,15 @@
 {
-    "styleguideHeading": "Styleguide heading"
+	"meta": {
+		"title":              "Static website generator",
+		"googleVerification": "wefwefwe",
+		"og": {
+			"title":       "Static website generator",
+			"name":        "Static website",
+			"url":         "http://localhost:3001",
+			"image":       "http://placehold.it/300x300",
+			"site_name":   "Static website generator",
+			"description": "sdfsfsdf",
+			"type":        "website"
+		}
+	}
 }
