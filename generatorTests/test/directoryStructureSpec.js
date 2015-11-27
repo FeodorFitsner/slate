@@ -1,5 +1,6 @@
 var path = require('path');
 var chai = require('chai');
+var expect = chai.expect;
 
 chai.use(require('chai-fs'));
 chai.should();
@@ -14,32 +15,32 @@ describe('As a dev', function() {
 
         it('then _config folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, '_config');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then _source folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, '_source');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then gulpTasks folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, 'gulpTasks');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then routes folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, 'routes');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then test folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, 'views');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then views folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, 'views');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
     });
@@ -50,22 +51,22 @@ describe('As a dev', function() {
 
         it('then _data folder should exist', function() {
             pathToTest = path.join(viewsPath, '_data');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then _layouts folder should exist', function() {
             pathToTest = path.join(viewsPath, '_layouts');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then _pages folder should exist', function() {
             pathToTest = path.join(viewsPath, '_pages');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
         it('then _partials folder should exist', function() {
             pathToTest = path.join(viewsPath, '_partials');
-            pathToTest.should.be.a.directory();
+            expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
     })
