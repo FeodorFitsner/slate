@@ -28,6 +28,7 @@ require('./gulpTasks/copy-assets.js')(gulp, config);
 require('./gulpTasks/release.js')(gulp, creds);
 require('./gulpTasks/compile-html.js')(gulp);
 require('./gulpTasks/local-testing.js')(gulp, config);
+require('./gulpTasks/new-component.js')(gulp, argv);
 
 /* ============================================================ *\
 	MAIN TASKS
@@ -36,7 +37,7 @@ require('./gulpTasks/local-testing.js')(gulp, config);
 gulp.task('watch:sass', function () {
 	if(!argv.prod) {
 		gulp.watch(
-			[config.paths.src.styles + '**/*.scss', config.dirs.components + '**/*.scss'],
+			[config.paths.src.styles + '/**/*.scss', config.paths.src.components + '/**/*.scss'],
 			['sass']
 		);
 	}
@@ -45,14 +46,27 @@ gulp.task('watch:sass', function () {
 gulp.task('watch:js', function () {
 	if(!argv.prod) {
 		gulp.watch(
-			[config.paths.src.scripts + '**/*.js', config.dirs.components + '/**/*.js'],
+			[config.paths.src.scripts + '/**/*.js', config.paths.src.components + '/**/*.js'],
 			['scripts']
 		);
 	}
 });
 
+gulp.task('watch:sprites', function () {
+	if(!argv.prod) {
+		gulp.watch(
+			[config.paths.src.images + '/svgs/*.svg'],
+			['sprites']
+		);
+	}
+});
+
+gulp.task('component', function(cb) {
+	runSeq(['new-component'], cb);
+})
+
 gulp.task('watch', function (cb) {
-	runSeq(['watch:sass', 'watch:js'], cb);
+	runSeq(['watch:sass', 'watch:js', 'watch:sprites'], cb);
 });
 
 gulp.task('build', function (cb) {
@@ -67,6 +81,10 @@ gulp.task('serve', function(cb) {
 	runSeq(['localServer'], ['browser-sync'], cb);
 });
 
+gulp.task('dev', function(cb) {
+	runSeq(['default'], ['watch', 'serve'], cb);
+});
+
 gulp.task('default', function (cb) {
-	runSeq(['sass-generate-contents'],['sass', 'scripts','scripts:vendor' ,'scripts:ie' ,'copy:fonts', 'imagemin'], ['sass:legacy:ie8'], cb);
+	runSeq(['clean'],['sass-generate-contents'],['sass', 'scripts','scripts:vendor' ,'scripts:ie' ,'copy:fonts', 'imagemin'], ['sass:legacy:ie8'], cb);
 });

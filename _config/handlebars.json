@@ -6,7 +6,7 @@
 		"./views/*.hbs",
 		"./views/**/*.hbs",
 		"!./views/_partials/**",
-		  "!./views/_layouts/**"
+		"!./views/_layouts/**"
 	],
 	"paths": {
 		"layouts":  "views/_layouts",
