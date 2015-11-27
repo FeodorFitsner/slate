@@ -59,9 +59,10 @@ describe('As a dev', function() {
         })
 
         it('then required handlebars view files should exist', function() {
-            var pathToTest = path.join(ROOT_DIR, 'views/');
+            var pathToTest = path.join(ROOT_DIR, 'views', '_pages');
             var files = [
-                'styleguide.hbs'
+                'styleguide.hbs',
+                'index.hbs'
             ]
 
             files.forEach(function(fileName) {
