@@ -22,7 +22,7 @@ var WebsiteController = function (website) {
 			templateData = {};
 		}
 
-		templateData = merge(defaultData, templateData);
+		templateData = merge.recursive(defaultData, templateData);
 
 		return templateData;
 	}
