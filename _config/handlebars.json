@@ -5,6 +5,7 @@
 	"views" : [
 		"./views/*.hbs",
 		"./views/**/*.hbs",
-		"!./views/_partials/**"
+		"!./views/_partials/**",
+        "!./views/_layouts/**"
 	]
 }
