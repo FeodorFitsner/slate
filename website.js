@@ -10,17 +10,18 @@ var methodOverride = require('express-method-override');
 var exphbs         = require('express-handlebars');
 var chalk          = require('chalk');
 
-website.engine('hbs', exphbs({
-	extname:       'hbs',
-	defaultLayout: 'index.hbs',
-	layoutsDir:    'views/_layouts',
-	defaultLayout: 'main',
-	partialsDir:   ['views/_partials']
+var config         = require('./_config/handlebars');
+
+website.engine(config.extension, exphbs({
+	extname:       config.extension,
+	layoutsDir:    config.paths.layouts,
+	defaultLayout: config.defaultLayout,
+	partialsDir:   [config.paths.partials]
 }));
 
 website.set('port', process.env.PORT || 3001);
-website.set('views', path.join(__dirname, 'views'));
-website.set('view engine', 'hbs');
+website.set('views', path.join(__dirname, config.paths.pages));
+website.set('view engine', config.extension);
 website.use(logger({path: './logs/logfile.txt'}));
 website.use(expressSession({
 	secret:            '18dhN7skw9AY82jb',
@@ -33,7 +34,7 @@ website.use(methodOverride());
 website.use(express.static(path.join(__dirname, 'public')));
 
 // Setup routing
-require('./routing')(website);
+require('./routing')(website, config);
 
 http.listen(website.get('port'), function(){
 	console.log('Website ready, listening on port: ' + website.get('port'));

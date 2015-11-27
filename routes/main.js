@@ -3,7 +3,7 @@ var merge           = require('merge');
 var defaultData     = require(path.resolve(__dirname, '..', '_config', 'templateData.json'));
 var templateHelpers = require(path.resolve(__dirname, '..', '_config', 'templateHelpers.js'))();
 
-var WebsiteController = function (website) {
+var WebsiteController = function (website, config) {
 	// Public functions
 	var website = website;
 	this.get = function(request, response) {
@@ -17,7 +17,7 @@ var WebsiteController = function (website) {
 		var templateData;
 
 		try{
-			templateData = require(path.resolve(__dirname, '..', 'views/_data', file + '.json'));
+			templateData = require(path.resolve(__dirname, '..', config.paths.data, file + '.json'));
 		} catch(err){
 			templateData = {};
 		}
