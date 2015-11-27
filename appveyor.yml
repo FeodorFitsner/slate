@@ -24,21 +24,21 @@ install:
   - cmd: npm cache clear
   # install modules
   - cmd: npm install
-  - cmd: npm uninstall node-sass
-  - cmd: npm uninstall gulp-sass
-  - cmd: npm install gulp-sass@1.3.3
-  - cmd: npm install node-sass@2.0.1
-  - cmd: npm -g install gulp-sass@1.3.3
-  - cmd: npm -g install node-sass@2.0.1
-  - cmd: cd generatorTests
-  - cmd: npm install -g mocha
-  - cmd: npm install -g gulp
-  - cmd: npm install chai-fs
-  - cmd: npm install fs-plus
+  # - cmd: npm uninstall node-sass
+  # - cmd: npm uninstall gulp-sass
+  # - cmd: npm install gulp-sass@1.3.3
+  # - cmd: npm install node-sass@2.0.1
+  # - cmd: npm -g install gulp-sass@1.3.3
+  # - cmd: npm -g install node-sass@2.0.1
+  # - cmd: cd generatorTests
+  # - cmd: npm install -g mocha
+  # - cmd: npm install -g gulp
+  # - cmd: npm install chai-fs
+  # - cmd: npm install fs-plus
 
 # Post-install test scripts.
-test_script:
-  - cmd: mocha
+# test_script:
+#   - cmd: mocha
 
 # Don't actually build.
 build: off
