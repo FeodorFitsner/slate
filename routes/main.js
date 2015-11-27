@@ -1,9 +1,9 @@
 var path            = require('path');
-var merge           = require('merge');
-var defaultData     = require(path.resolve(__dirname, '..', '_config', 'templateData.json'));
-var templateHelpers = require(path.resolve(__dirname, '..', '_config', 'templateHelpers.js'))();
+var templateHelpers = require(path.resolve(__dirname, '..', '_lib', 'templateHelpers.js'))();
 
 var WebsiteController = function (website, config) {
+	var tools = require(path.resolve(__dirname, '..', '_lib', 'handlebarsTools'))(config);
+
 	// Public functions
 	var website = website;
 	this.get = function(request, response) {
@@ -13,23 +13,9 @@ var WebsiteController = function (website, config) {
 		response.render(url, createModel(url));
 	};
 
-	function getData(file) {
-		var templateData;
-
-		try{
-			templateData = require(path.resolve(__dirname, '..', config.paths.data, file + '.json'));
-		} catch(err){
-			templateData = {};
-		}
-
-		templateData = merge.recursive(defaultData, templateData);
-
-		return templateData;
-	}
-
 	function createModel(partialName){
 		var model = {
-			data:    getData(partialName),
+			data:    tools.getTemplateData(partialName),
 			helpers: templateHelpers
 		}
 
@@ -46,8 +32,8 @@ var WebsiteController = function (website, config) {
 
 };
 
-module.exports = function(website) {
-	var controller = new WebsiteController(website);
+module.exports = function(website, config) {
+	var controller = new WebsiteController(website, config);
 	website.get(['/*','/:loc'], controller.get);
 
 };
