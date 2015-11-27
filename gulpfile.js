@@ -14,7 +14,7 @@ var runSeq     = require('run-sequence');
 var config     = require('./_config/project.json');
 var creds      = require('./_config/creds.json');
 
-config.paths   = require('./_config/paths')(config);
+config.paths   = require('./_lib/paths')(config);
 
 /* ============================================================ *\
     TASK MODULES

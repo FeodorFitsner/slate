@@ -73,6 +73,11 @@ module.exports = function() {
          	}
 
          	return content;
-         }
+         },
+         debug: function(optionalValue) {
+            console.log("Value");
+            console.log("====================");
+            console.log(optionalValue);
+        }
     }
 }
