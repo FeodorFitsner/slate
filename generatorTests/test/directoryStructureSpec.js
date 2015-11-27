@@ -18,6 +18,11 @@ describe('As a dev', function() {
             expect(pathToTest).to.be.a.directory().and.not.empty;
         })
 
+        it('then _lib folder should exist', function() {
+            pathToTest = path.join(ROOT_DIR, '_lib');
+            expect(pathToTest).to.be.a.directory().and.not.empty;
+        })
+
         it('then _source folder should exist', function() {
             pathToTest = path.join(ROOT_DIR, '_source');
             expect(pathToTest).to.be.a.directory().and.not.empty;

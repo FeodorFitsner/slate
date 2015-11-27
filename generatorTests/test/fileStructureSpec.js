@@ -19,12 +19,26 @@ describe('As a dev', function() {
                 'handlebars.json',
                 'itcss.js',
                 'jshint.json',
-                'paths.js',
                 'project.json',
                 'sass.json',
                 'templateData.json',
-                'templateHelpers.js',
             ];
+
+            files.forEach(function(fileName) {
+                filePathToTest = path.join(pathToTest, fileName);
+                filePathToTest.should.be.a.file().and.not.empty;
+            });
+        })
+
+        it('then _lib files should exist', function() {
+            var pathToTest = path.join(ROOT_DIR, '_lib/');
+            var filePathToTest;
+
+            var files = [
+                'paths.js',
+                'templateHelpers.js',
+                'handlebarsTools.js'
+            ]  
 
             files.forEach(function(fileName) {
                 filePathToTest = path.join(pathToTest, fileName);
