@@ -11,5 +11,8 @@
 			"description": "sdfsfsdf",
 			"type":        "website"
 		}
+	},
+	"config": {
+		"JS": true
 	}
 }
