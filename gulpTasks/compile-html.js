@@ -1,30 +1,46 @@
+'use strict';
+
 /* ============================================================ *\
-    COMPILE TEMPLATES / HTML
+	COMPILE TEMPLATES / HTML
 \* ============================================================ */
 
+// Gulp modules
 var rename = require('gulp-rename');
+var data   = require('gulp-data');
+var path   = require('path');
+
+
+// Handlebars requirements
 var handlebars = require('gulp-compile-handlebars');
 
-var handlebarsConfig = require('../_config/handlebars.json');
-var templateDataJson = require('../_config/templateData.json');
-var templateHelpers = require('../_config/templateHelpers.js')();
+// Config
+var handlebarsConfig  = require('../_config/handlebars');
+var templateHelpers   = require('../_lib/templateHelpers')();
+var handlebarsTools   = require('../_lib/handlebarsTools')(handlebarsConfig);
 
-module.exports = function(gulp) {
+module.exports = function(gulp, config) {
 
-    gulp.task('compile-html', function () {
-        var templateData = {
-            data: templateDataJson
-        },
+	function getData(file) {
+		file = path.basename(file.path, '.' + handlebarsConfig.extension);
 
-        options = {
-            batch : handlebarsConfig.partials,
-            helpers: templateHelpers
-        }
-        
-        return gulp.src(handlebarsConfig.views)
-            .pipe(handlebars(templateData, options))
-            .pipe(rename({extname: '.html'}))
-            .pipe(gulp.dest('build'));
-    });
+		return {
+			data: handlebarsTools.getTemplateData(file)
+		};
+	}
+
+	gulp.task('compile-html', function () {
+		var templateData = {};
+
+		var options = {
+			batch:   [handlebarsConfig.paths.partials],
+			helpers: templateHelpers
+		}
+
+		return gulp.src(handlebarsConfig.paths.pages + '/**/*.hbs')
+			.pipe(data(getData))
+			.pipe(handlebars({}, options))
+			.pipe(rename({extname: '.html'}))
+			.pipe(gulp.dest('build'));
+	});
 
 }

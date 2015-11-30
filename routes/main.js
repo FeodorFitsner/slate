@@ -6,12 +6,6 @@ var WebsiteController = function (website, config) {
 
 	// Public functions
 	var website = website;
-	this.get = function(request, response) {
-		if (!request.body) return response.sendStatus(400);
-		var url = parseUrl(request.params[0]);
-
-		response.render(url, createModel(url));
-	};
 
 	function createModel(partialName){
 		var model = {
@@ -30,10 +24,16 @@ var WebsiteController = function (website, config) {
 		return url;
 	}
 
+	this.get = function(request, response) {
+		if (!request.body) return response.sendStatus(400);
+		var url = parseUrl(request.params[0]);
+
+		response.render(url, createModel(url));
+	};
+
 };
 
 module.exports = function(website, config) {
 	var controller = new WebsiteController(website, config);
 	website.get(['/*','/:loc'], controller.get);
-
 };
