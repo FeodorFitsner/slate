@@ -10,10 +10,12 @@ var methodOverride = require('express-method-override');
 var exphbs         = require('express-handlebars');
 var chalk          = require('chalk');
 
-var config         = require('./_config/handlebars');
+var config          = require('./_config/handlebars');
+var templateHelpers = require('./_lib/templateHelpers')();
 
 website.engine(config.extension, exphbs({
 	extname:       config.extension,
+	helpers:       templateHelpers,
 	layoutsDir:    config.paths.layouts,
 	defaultLayout: config.defaultLayout,
 	partialsDir:   [config.paths.partials]
