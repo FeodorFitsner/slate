@@ -3,9 +3,6 @@ var path = require('path');
 var WebsiteController = function (website, config) {
 	var tools = require(path.resolve(__dirname, '..', '_lib', 'handlebarsTools'))(config);
 
-	// Public functions
-	var website = website;
-
 	function createModel(partialName){
 		var model = {
 			data: tools.getTemplateData(partialName)
