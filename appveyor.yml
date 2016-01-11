@@ -40,5 +40,9 @@ install:
 # test_script:
 #   - cmd: mocha
 
+cache:
+  - node_modules
+  - generatorTests/node_modules
+
 # Don't actually build.
 build: off
