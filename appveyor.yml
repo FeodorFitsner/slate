@@ -16,7 +16,7 @@ environment:
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  - cmd: npm -g install npm@1.4.28
+  - cmd: npm -g install npm
   - set PATH=%APPDATA%\npm;%PATH%
   # Output useful info for debugging.
   - cmd: node --version
