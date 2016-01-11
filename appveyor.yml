@@ -8,7 +8,7 @@ branches:
 environment:
   matrix:
   # nodejs version: "5"
-  - nodejs_version: "5"
+  # - nodejs_version: "5"
   # nodejs version: "0.12"
   - nodejs_version: "0.12"
 
@@ -21,7 +21,7 @@ install:
   # Output useful info for debugging.
   - cmd: node --version
   - cmd: npm --version
-  - cmd: npm cache clear
+  # - cmd: npm cache clear
   # install modules
   - cmd: npm install
   # - cmd: npm uninstall node-sass
@@ -42,7 +42,7 @@ install:
 
 cache:
   - node_modules
-  - generatorTests/node_modules
+  # - generatorTests/node_modules
 
 # Don't actually build.
 build: off
