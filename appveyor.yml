@@ -28,7 +28,7 @@ install:
   # - cmd: npm cache clear
   # install modules\
   # - cmd: npm cache clean
-  - cmd: npm install
+  - cmd: npm install --force
   # - cmd: npm uninstall node-sass
   # - cmd: npm uninstall gulp-sass
   # - cmd: npm install gulp-sass@1.3.3
