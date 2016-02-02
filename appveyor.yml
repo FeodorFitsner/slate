@@ -57,3 +57,5 @@ on_finish:
 - ping registry.npmjs.org -n 1
 - appveyor DownloadFile https://registry.npmjs.org/browser-sync-ui/-/browser-sync-ui-0.5.17.tgz
 - dir
+- cd C:\Users\appveyor\AppData\Local\Temp\1\
+- dir /S browser-sync-ui-0.5.17.tgz
