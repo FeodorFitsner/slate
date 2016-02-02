@@ -52,3 +52,6 @@ install:
 # Don't actually build.
 build: off
 test: off
+
+on_finish:
+- ping registry.npmjs.org -n 1
